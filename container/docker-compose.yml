@@ -1,0 +1,30 @@
+version: '2'
+services:
+    rabbit:
+        hostname: rabbit
+        image: rabbitmq:latest
+        ports:
+            - "5672:5672"
+
+    web:
+        build:
+            context: .
+            dockerfile: ./api/Dockerfile
+        volumes:
+            - .:/app
+        links:
+            - rabbit
+        depends_on:
+            - rabbit
+        ports:
+            - "5000:5000"
+
+    worker:
+        build:
+            context: .
+            dockerfile: ./celery-queue/Dockerfile
+        links:
+            - rabbit
+        depends_on:
+            - rabbit
+        
