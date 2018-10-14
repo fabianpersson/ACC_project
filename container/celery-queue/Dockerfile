@@ -8,7 +8,7 @@ RUN pip install oct2py
 RUN pip install numpy
 RUN pip install scipy
 ADD shared/proj /home/ubuntu/proj
-ADD celery-queue/files/ /home/ubuntu/files/
+ADD benchop.tar.gz/ /home/ubuntu/files/
 RUN ls /home/ubuntu/files/
 WORKDIR /home/ubuntu/
 EXPOSE 5672 

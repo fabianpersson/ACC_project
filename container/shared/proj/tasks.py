@@ -5,9 +5,12 @@ from .octave import Octave
 @app.task
 def run_octave_file(config=False):
     path = '/home/ubuntu/files'
-    octave = Octave(cwd=path)
-    res = octave.run('roundtrip',2)
-    
+    try:
+        octave = Octave(cwd=path)
+        res = octave.run('roundtrip',2)
+    except:
+        res = 'could not complete request'
+        
     return res
     
 
