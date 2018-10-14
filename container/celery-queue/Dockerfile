@@ -9,6 +9,7 @@ RUN pip install numpy
 RUN pip install scipy
 ADD shared/proj /home/ubuntu/proj
 ADD celery-queue/files/ /home/ubuntu/files/
+RUN ls /home/ubuntu/files/
 WORKDIR /home/ubuntu/
 EXPOSE 5672 
 ENTRYPOINT celery -A proj worker  --loglevel=info
