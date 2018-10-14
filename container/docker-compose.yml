@@ -1,12 +1,15 @@
-version: '2'
+version: '3'
 services:
     rabbit:
         hostname: rabbit
         image: rabbitmq:latest
         ports:
             - "5672:5672"
+        networks:
+            - web
 
-    web:
+    flask:
+        image: 127.0.0.1:5000/api
         build:
             context: .
             dockerfile: ./api/Dockerfile
@@ -17,9 +20,14 @@ services:
         depends_on:
             - rabbit
         ports:
-            - "5000:5000"
+            - 8000:8000 #does not need to be exposed in dockerfile?
+        environment:
+            - SERVICE_PORTS=8000
+        networks:
+            - web
 
     worker:
+        image: 127.0.0.1:5000/celery-queue
         build:
             context: .
             dockerfile: ./celery-queue/Dockerfile
@@ -27,4 +35,25 @@ services:
             - rabbit
         depends_on:
             - rabbit
+        networks:
+            - web
+
+    proxy:
+        image: dockercloud/haproxy
+        depends_on:
+            - flask
+        environment:
+            - BALANCE=leastconn
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        ports:
+            - 80:80
+        networks:
+            - web
+        deploy:
+            placement:
+                constraints: [node.role == manager]
+networks:
+  web:
+    driver: overlay
         

@@ -9,6 +9,6 @@ RUN pip install numpy
 ADD shared/proj /home/ubuntu/proj
 ADD api/app.py /home/ubuntu/
 WORKDIR /home/ubuntu/
-EXPOSE 5000
+EXPOSE 8000
 ENTRYPOINT python app.py
 
