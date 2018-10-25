@@ -3,24 +3,27 @@ import numpy as np
 # x = np.array([[1, 2], [3, 4]], dtype=float)
 
 class Octave(object):
-    def __init__(self, **kwargs):
-        self.sess = self.create_octave_session(kwargs.get('cwd'))
-
-    def run(self, fn_name, args):
-        fn_call = self.func_formatter(fn_name, args)
-        stdout = self.sess.communicate(input=fn_call)
-        result = self.parse_output(stdout)
-        return result
+    def run(self, fn_name, args, filepath):
+        
+        print("initiaitng session")
+        session = self.create_octave_session(filepath)
+        print("sesssion {}".format(session))
+        stdin = self.func_formatter(fn_name, args)
+        print("stdin {}".format(stdin))
+        stdout = session.communicate(input=stdin)
+        print("stdout {}".format(stdout))
+        stdout_parsed = self.parse_output(stdout)
+        return stdout_parsed
 
     # init a octave subprocess 
     @staticmethod
     def create_octave_session(cwd=False):
          return Popen('octave', cwd=cwd, stdout=PIPE, stdin=PIPE, stderr=STDOUT)        
         
-    # parse user as a function call to send to octave
+    # parse as a function call that we can send to octave
     @staticmethod
     def func_formatter(fn_name, args):
-        return '{}({})'.format(fn_name, np.array(args, dtype=float))
+        return '{}{}'.format(fn_name,args)
 
     @staticmethod
     def parse_output(output):

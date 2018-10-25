@@ -9,6 +9,17 @@ app = Flask(__name__)
 
 @app.route('/api/v1.0/', methods=['GET'])
 def index():
+    
+    
+    #get user parameters 
+    
+    function_calls_1a = {
+        'BSeuCallUII_COS': '/home/ubuntu/files/BENCHOP/COS'
+        
+    }
+    
+    
+    
     res = run_octave_file.delay()	
     return jsonify(res.get())
 

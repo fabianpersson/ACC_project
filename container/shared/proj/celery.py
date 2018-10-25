@@ -3,8 +3,9 @@ from __future__ import absolute_import, unicode_literals
 from celery import Celery
 
 app = Celery('proj',
+             BROKER_HEARTBEAT=0,
              backend='rpc://', 
-	     broker='amqp://guest:guest@rabbit:5672/',
+             broker='amqp://guest:guest@rabbit:5672/',
              include=['proj.tasks'])
 
 # Optional configuration, see the application user guide.

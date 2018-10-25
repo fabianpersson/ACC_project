@@ -4,13 +4,18 @@ from .octave import Octave
 
 @app.task
 def run_octave_file(config=False):
-    path = '/home/ubuntu/files'
+    cwd = '/home/ubuntu/files/BENCHOP/COS'
+    parameters = [90, 100, 110], 100, 1.0, 0.03, 0.15
+    
+    
+    
     try:
-        octave = Octave(cwd=path)
-        res = octave.run('roundtrip',2)
-    except:
-        res = 'could not complete request'
+        octave = Octave()
+        res = octave.run('BSeuCallUII_COS', parameters, cwd)
         
+        
+    except Exception as e:
+        return e
     return res
     
 
