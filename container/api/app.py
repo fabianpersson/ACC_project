@@ -14,7 +14,7 @@ def index(method):
     parameters = ([90, 100, 110], 100, 1.0, 0.03, 0.1)
     methods = [method]
     problems = []
-    base_func = "BSeuCallUII_{}"
+    base_func = "BSeuCallUI_{}"
     base_path = "/home/ubuntu/files/BENCHOP/{}"
     
     tasks = generate_tasks(methods, base_func, base_path, parameters)
