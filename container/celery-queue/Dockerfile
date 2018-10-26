@@ -11,5 +11,5 @@ ADD benchop.tar.gz/ /home/ubuntu/files/
 RUN ls /home/ubuntu/files/
 WORKDIR /home/ubuntu/
 EXPOSE 5672 
-ENTRYPOINT celery -A proj worker  --loglevel=info
+ENTRYPOINT celery -A proj worker --without-heartbeat --loglevel=info
 
