@@ -8,10 +8,10 @@ from proj.tasks import run_octave_file
 app = Flask(__name__)
 
 
-@app.route('/api/v1.0/', methods=['GET'])
-def index():
+@app.route('/api/v1.0/<string:method>', methods=['GET'])
+def index(method):
     parameters = ([90, 100, 110], 100, 1.0, 0.03, 0.1)
-    methods = ['COS', 'FD', 'RBF-FD']
+    methods = [method]
     problems = []
     base_func = "BSeuCallUII_{}"
     base_path = "/home/ubuntu/files/BENCHOP/{}"
