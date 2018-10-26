@@ -23,7 +23,9 @@ class Octave(object):
     # parse as a function call that we can send to octave
     @staticmethod
     def func_formatter(fn_name, args):
-        return '{}{}'.format(fn_name,args)
+        print(tuple(args))
+    
+        return '{}{}'.format(fn_name,tuple(args))
 
     @staticmethod
     def parse_output(output):
