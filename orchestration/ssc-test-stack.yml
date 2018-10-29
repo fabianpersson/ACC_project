@@ -1,0 +1,145 @@
+#################
+# A comprehensive implementation of injecting public keys is available on following URL:
+#
+#https://github.com/openstack/heat-templates/blob/master/hot/software-config/example-templates/example-ssh-copy-id.yaml
+#################
+
+
+heat_template_version: 2013-05-23
+
+description: Simple template to deploy a cluster 
+
+# Declare parameters 
+parameters:
+  count:
+    type: number
+    label: Number of nodes
+    description: Number of nodes to deploy on the stack
+    default: 2
+
+  image:
+    type: string
+    label: Image name or ID
+    description: Image to be used for compute instance
+    default:  7cd775cd-56e9-4115-a8c8-c18cb3c8311f
+
+  flavor:
+    type: string
+    label: Flavor
+    description: Type of instance (flavor) to be used
+    default: ACCHT18.normal
+
+  key:
+    type: string
+    label: Key name
+    description: Name of key-pair to be used for compute instance
+    default: fabianskey2
+
+  public_network:
+    type: string
+    label: Public network name or ID
+    description: Public network with floating IP addresses.
+    default: Public External IPv4 Network
+  
+  private_network:
+    type: string
+    description: ID of private network into which servers get deployed
+    default: 06b148ad-bfe4-41ac-8137-56b2363bfbe6
+
+  private_subnet_id:
+    type: string
+    description: ID of private subnet into which servers get deployed
+    default: fb1e041a-2a82-41b5-ace1-1e85d8a0e77a
+
+# Resource allocation
+resources:
+  cluster_sg:
+    type: OS::Neutron::SecurityGroup
+    properties:
+      name: cluster_sg
+      rules:
+        - protocol: icmp
+        - protocol: tcp
+          port_range_min: 22
+          port_range_max: 22
+ 
+  instance_port0:
+    type: OS::Neutron::Port
+    properties:
+      network_id: { get_param: private_network }
+      fixed_ips:
+        - subnet_id: { get_param: private_subnet_id }
+      security_groups:
+        - { get_resource: cluster_sg }
+  instance_port1:
+    type: OS::Neutron::Port
+    properties:
+      network_id: { get_param: private_network }
+      fixed_ips:
+        - subnet_id: { get_param: private_subnet_id }
+      security_groups:
+        - { get_resource: cluster_sg }
+        
+        
+   
+  my_instance0:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: image }
+      flavor: { get_param: flavor }
+      key_name: { get_param: key }
+      #security_groups:
+      #  - { get_resource: cluster_sg }
+      networks:
+        - port: { get_resource: instance_port0 }         
+      user_data: |
+       #!/bin/sh
+       echo "Hello, World!"
+       echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWrwaFLOgkwlaYhSSqNvIzpFCvwkei3X38ryUHukm0msjXGpIFEFAlwrCOLXz8qb3kmUPy0sqltfxzOanyprQ6p3fJ0+C4/qCH7F9Z8O/9CmSeLxywthAFaBmwS+4aRr11wE2WFp/wkE9sx1JBvBQRPuWMdKaVfZRUnStK6Vu4NDRtUkCWFa9f8btnOu+OSALIc4wJVqJf5Cp2v3g74Sm7gjQ61gCzekkHj8JyG9M0qFp59XYKdTmWlQo8qqzhueTw/xoGXLbf1DAPtyDVp3ZNeKAgJS5RzA6IIdT7BmiEEJNuJ9wH99dM2y+pTmZIcfI0K1Sw4r9ms/W23q++zY9x ubuntu@f-test" >> /home/ubuntu/.ssh/authorized_keys
+       echo "added keys"
+       apt-add-repository -y ppa:ansible/ansible
+       apt-get update -y
+       apt-get upgrade -y
+       apt-get install -y ansible
+
+       apt-get install \
+       apt-transport-https \
+       ca-certificates \
+       curl \
+       software-properties-common
+            
+       curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+            
+       add-apt-repository \
+       "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+       $(lsb_release -cs) \
+       stable"
+           
+       apt-get update
+            
+       apt-get install docker-ce -y
+            
+       docker swarm join --token SWMTKN-1-0bjpmkzan8dth3925umyuocw6i84tuam5dcuhohwu3e1shwz89-6we4qa5j5zcvnf2zy8ylubt5o 192.168.1.76:2377
+            
+      user_data_format: RAW
+
+
+  floating_ip:
+    type: OS::Neutron::FloatingIP
+    properties:
+      floating_network: { get_param: public_network }
+
+  floating_ip_assoc:
+    type: OS::Neutron::FloatingIPAssociation
+    properties:
+      floatingip_id: { get_resource: floating_ip }
+      port_id: { get_resource: instance_port0 } 
+
+# Output in case of successful booting
+outputs:
+  instance_name:
+    description: Name of the instance
+    value: { get_attr: [my_instance0, name] }
+  instance_ip:
+    description: IP address of the instance
+    value: { get_attr: [my_instance0, first_address, floating_ip, floating_ip_address] }
