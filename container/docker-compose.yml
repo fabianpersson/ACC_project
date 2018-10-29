@@ -5,11 +5,19 @@ services:
         image: rabbitmq:latest
         ports:
             - "5672:5672"
+        environment:
+            - RABBITMQ_DEFAULT_USER=fabian
+            - RABBITMQ_DEFAULT_PASS=fabian
         networks:
             - web
+        deploy:
+            placement:
+                constraints: [node.role == manager]
+        volumes:
+            - /var/run/docker.sock:/docker.sock
 
     flask:
-        image: 127.0.0.1:5000/api
+        image: 192.168.1.76:5000/api
         build:
             context: .
             dockerfile: ./api/Dockerfile
@@ -25,9 +33,12 @@ services:
             - SERVICE_PORTS=8000
         networks:
             - web
+        deploy:
+            placement:
+                constraints: [node.role == manager]
 
     worker:
-        image: 127.0.0.1:5000/celery-queue
+        image: 192.168.1.76:5000/celery-queue
         build:
             context: .
             dockerfile: ./celery-queue/Dockerfile
@@ -36,8 +47,8 @@ services:
         depends_on:
             - rabbit
         networks:
-            - web
-
+            - web    
+       
     proxy:
         image: dockercloud/haproxy
         depends_on:
@@ -56,4 +67,5 @@ services:
 networks:
   web:
     driver: overlay
+    
         
