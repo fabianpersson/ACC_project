@@ -50,6 +50,13 @@ parameters:
     type: string
     description: ID of private subnet into which servers get deployed
     default: fb1e041a-2a82-41b5-ace1-1e85d8a0e77a
+    
+  master_ip:
+    type: string
+    description: IP of the master node where the docker manager resides 
+    default: 192.168.1.76
+    
+    
 
 # Resource allocation
 resources:
@@ -62,6 +69,10 @@ resources:
         - protocol: tcp
           port_range_min: 22
           port_range_max: 22
+        - protocol: icmp
+        - protocol: tcp
+          port_range_min: 5000
+          port_range_max: 5000
  
   instance_port0:
     type: OS::Neutron::Port
@@ -71,6 +82,7 @@ resources:
         - subnet_id: { get_param: private_subnet_id }
       security_groups:
         - { get_resource: cluster_sg }
+        
   instance_port1:
     type: OS::Neutron::Port
     properties:
@@ -80,27 +92,18 @@ resources:
       security_groups:
         - { get_resource: cluster_sg }
         
-        
-   
-  my_instance0:
-    type: OS::Nova::Server
+  boot_script:
+    type: OS::Heat::SoftwareConfig
     properties:
-      image: { get_param: image }
-      flavor: { get_param: flavor }
-      key_name: { get_param: key }
-      #security_groups:
-      #  - { get_resource: cluster_sg }
-      networks:
-        - port: { get_resource: instance_port0 }         
-      user_data: |
+      group: ungrouped
+      config: |
        #!/bin/sh
        echo "Hello, World!"
        echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWrwaFLOgkwlaYhSSqNvIzpFCvwkei3X38ryUHukm0msjXGpIFEFAlwrCOLXz8qb3kmUPy0sqltfxzOanyprQ6p3fJ0+C4/qCH7F9Z8O/9CmSeLxywthAFaBmwS+4aRr11wE2WFp/wkE9sx1JBvBQRPuWMdKaVfZRUnStK6Vu4NDRtUkCWFa9f8btnOu+OSALIc4wJVqJf5Cp2v3g74Sm7gjQ61gCzekkHj8JyG9M0qFp59XYKdTmWlQo8qqzhueTw/xoGXLbf1DAPtyDVp3ZNeKAgJS5RzA6IIdT7BmiEEJNuJ9wH99dM2y+pTmZIcfI0K1Sw4r9ms/W23q++zY9x ubuntu@f-test" >> /home/ubuntu/.ssh/authorized_keys
        echo "added keys"
-       apt-add-repository -y ppa:ansible/ansible
+       
        apt-get update -y
        apt-get upgrade -y
-       apt-get install -y ansible
 
        apt-get install \
        apt-transport-https \
@@ -118,11 +121,40 @@ resources:
        apt-get update
             
        apt-get install docker-ce -y
+       
+       echo '{ "insecure-registries" : ["192.168.1.76:5000"] }' > /etc/docker/daemon.json
+       
+       service docker restart
             
-       docker swarm join --token SWMTKN-1-0bjpmkzan8dth3925umyuocw6i84tuam5dcuhohwu3e1shwz89-6we4qa5j5zcvnf2zy8ylubt5o 192.168.1.76:2377
-            
+       docker swarm join --token SWMTKN-1-0kc09r1x4ff5vb8qopzb336frjkl5x1xlp81mi46iv5n16txiq-dkdrhwfd421wxj3af18egecqd 192.168.1.76:2377
+   
+  my_instance0:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: image }
+      flavor: { get_param: flavor }
+      key_name: { get_param: key }
+      #security_groups:
+      #  - { get_resource: cluster_sg }
+      networks:
+        - port: { get_resource: instance_port0 }         
+      user_data: {get_resource: boot_script}
       user_data_format: RAW
-
+      
+  my_instance1:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: image }
+      flavor: { get_param: flavor }
+      key_name: { get_param: key }
+      #security_groups:
+      #  - { get_resource: cluster_sg }
+      networks:
+        - port: { get_resource: instance_port1 }         
+      user_data: {get_resource: boot_script}
+      user_data_format: RAW
+      
+      
 
   floating_ip:
     type: OS::Neutron::FloatingIP
