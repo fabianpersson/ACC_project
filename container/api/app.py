@@ -15,9 +15,12 @@ def index(method, problem='I'):
     print('index')
     available_problems = ['I', 'II']
     available_methods = ['COS', 'RBF-FD']
+    if problem == "I":
+        parameters = ([90, 100, 110], 100, 1.0, 0.03, 0.15)
+    elif problem == "II":
+        parameters = ([97, 98, 99], 100, 0.25, 0.10, 0.01)
     
     if problem in available_problems and method in available_methods: #if it's a valid request
-        parameters = ([90, 100, 110], 100, 1.0, 0.03, 0.1)
         methods = [method]
         problems = []
         base_func = "BSeuCallU{}_{}"
