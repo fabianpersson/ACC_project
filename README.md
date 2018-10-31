@@ -24,3 +24,21 @@
 
 #### Bugs:
 ###### 1. Run actual becnchop files instead of stupid dummy matlab file
+
+
+#### port rules:
+
+cluster_sg
+ALLOW IPv6 to ::/0
+ALLOW IPv4 icmp from 0.0.0.0/0
+ALLOW IPv4 5000/tcp from 0.0.0.0/0
+ALLOW IPv4 22/tcp from 0.0.0.0/0
+ALLOW IPv4 to 0.0.0.0/0
+ALLOW IPv4 5672/tcp from 0.0.0.0/0
+default
+ALLOW IPv4 to 0.0.0.0/0
+ALLOW IPv4 80/tcp to 0.0.0.0/0
+ALLOW IPv4 22/tcp from 0.0.0.0/0
+ALLOW IPv4 80/tcp from 0.0.0.0/0
+ALLOW IPv4 5000/tcp from 0.0.0.0/0
+ALLOW IPv4 from default
