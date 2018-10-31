@@ -8,10 +8,8 @@ services:
         environment:
             - RABBITMQ_DEFAULT_USER=fabian
             - RABBITMQ_DEFAULT_PASS=fabian
-
-            
-        #networks:
-        #    - web
+        networks:
+            - web
         deploy:
             placement:
                 constraints: [node.role == manager]
@@ -33,8 +31,8 @@ services:
             - 8000:8000 #does not need to be exposed in dockerfile?
         environment:
             - SERVICE_PORTS=8000
-        #networks:
-        #    - web
+        networks:
+            - web
         deploy:
             placement:
                 constraints: [node.role == manager]
@@ -46,23 +44,23 @@ services:
             dockerfile: ./celery-queue/Dockerfile
         links:
             - rabbit
-      #      - redis
+            - redis
         depends_on:
             - rabbit
-     #       - redis
-       # networks:
-       #     - web    
+            - redis
+        networks:
+            - web    
        
-    #redis:
-    #    hostname: redis
-    #    image: "redis:alpine"
-    #    networks:
-    #        - web   
-    #    ports:
-    #        - 6379:6379
-    #    deploy:
-    #        placement:
-    #            constraints: [node.role == manager]
+    redis:
+        hostname: redis
+        image: "redis:alpine"
+        networks:
+            - web   
+        ports:
+            - 6379:6379
+        deploy:
+            placement:
+                constraints: [node.role == manager]
         
 
             
@@ -81,8 +79,8 @@ services:
 #        deploy:
 #            placement:
 #                constraints: [node.role == manager]
-#networks:
-#  web:
-#    driver: overlay
+networks:
+  web:
+    driver: overlay
     
         

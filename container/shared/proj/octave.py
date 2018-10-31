@@ -2,6 +2,7 @@ from subprocess import Popen, PIPE, STDOUT
 import numpy as np
 import re 
 import time
+
 # x = np.array([[1, 2], [3, 4]], dtype=float)
 
 class Octave(object):
@@ -16,8 +17,7 @@ class Octave(object):
         print("stdout {}".format(stdout))
         answer = self._parse_output(stdout)
        
-  
-        return {fn_name: answer, "time": execution_time}
+        return {"name": fn_name, "answer": answer, "time": execution_time}
 
     @staticmethod
     def _prepare_function_call(self, filepath, fn_name, args):
@@ -44,11 +44,14 @@ class Octave(object):
     @staticmethod
     def _parse_output(stdout):
         result = stdout[0]
-        
         #search for answer an a newline, indicating an answer was found
         answer_start_idx = re.search(r'ans(.*)(\n+)', result).start(2) 
         answer = result[answer_start_idx:].strip('\n').split()
-        return answer
+        try:
+            return map(lambda x: float(x), answer) #try to returns as float array
+        except Exception as e:
+            print(e)
+            return answer
 
 
         
