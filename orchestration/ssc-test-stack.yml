@@ -93,7 +93,7 @@ resources:
         - subnet_id: { get_param: private_subnet_id }
       security_groups:
         - { get_resource: cluster_sg }
-        - { get_param: default }
+        - { get_param: sec_group_id }
         
   instance_port1:
     type: OS::Neutron::Port
@@ -103,7 +103,7 @@ resources:
         - subnet_id: { get_param: private_subnet_id }
       security_groups:
         - { get_resource: cluster_sg } 
-        - { get_param: default }
+        - { get_param: sec_group_id }
         
   instance_port2:
     type: OS::Neutron::Port
@@ -113,8 +113,7 @@ resources:
         - subnet_id: { get_param: private_subnet_id }
       security_groups:
         - { get_resource: cluster_sg }
-        - { get_param: default }
-        
+        - { get_param: sec_group_id }
         
   boot_script:
     type: OS::Heat::SoftwareConfig
