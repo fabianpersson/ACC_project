@@ -21,7 +21,7 @@ parameters:
     type: string
     label: Image name or ID
     description: Image to be used for compute instance
-    default:  7cd775cd-56e9-4115-a8c8-c18cb3c8311f
+    default:  6d124b7f-ae0e-45b2-9750-72c0cfa63a97
 
   flavor:
     type: string
@@ -55,6 +55,13 @@ parameters:
     type: string
     description: IP of the master node where the docker manager resides 
     default: 192.168.1.76
+  sec_group_id:
+    type: string
+    description: id of the secturity group
+    default: 711972e1-f0d5-45bd-b577-156e9cfd0f62
+    
+    
+  
     
     
 
@@ -73,6 +80,10 @@ resources:
         - protocol: tcp
           port_range_min: 5000
           port_range_max: 5000
+        - protocol: icmp
+        - protocol: tcp
+          port_range_min: 5672
+          port_range_max: 5672
  
   instance_port0:
     type: OS::Neutron::Port
@@ -82,6 +93,7 @@ resources:
         - subnet_id: { get_param: private_subnet_id }
       security_groups:
         - { get_resource: cluster_sg }
+        - { get_param: sec_group_id }
         
   instance_port1:
     type: OS::Neutron::Port
@@ -90,7 +102,18 @@ resources:
       fixed_ips:
         - subnet_id: { get_param: private_subnet_id }
       security_groups:
+        - { get_resource: cluster_sg } 
+        - { get_param: sec_group_id }
+        
+  instance_port2:
+    type: OS::Neutron::Port
+    properties:
+      network_id: { get_param: private_network }
+      fixed_ips:
+        - subnet_id: { get_param: private_subnet_id }
+      security_groups:
         - { get_resource: cluster_sg }
+        - { get_param: sec_group_id }
         
   boot_script:
     type: OS::Heat::SoftwareConfig
@@ -126,7 +149,7 @@ resources:
        
        service docker restart
             
-       docker swarm join --token SWMTKN-1-0kc09r1x4ff5vb8qopzb336frjkl5x1xlp81mi46iv5n16txiq-dkdrhwfd421wxj3af18egecqd 192.168.1.76:2377
+       docker swarm join --token SWMTKN-1-4srrfzlproldj92d7cqllwf6vkboqwbnx6ska4xx7u3xvjcz28-2frzpc353orvvid24nnnhwa2g 192.168.1.76:2377
    
   my_instance0:
     type: OS::Nova::Server
@@ -155,6 +178,18 @@ resources:
       user_data_format: RAW
       
       
+  my_instance2:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: image }
+      flavor: { get_param: flavor }
+      key_name: { get_param: key }
+      #security_groups:
+      #  - { get_resource: cluster_sg }
+      networks:
+        - port: { get_resource: instance_port2 }         
+      user_data: {get_resource: boot_script}
+      user_data_format: RAW
 
   floating_ip:
     type: OS::Neutron::FloatingIP

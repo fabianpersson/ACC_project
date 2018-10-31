@@ -6,6 +6,8 @@ RUN pip install --upgrade pip
 RUN pip install flask
 RUN pip install celery
 RUN pip install numpy
+RUN pip install sqlalchemy
+RUN pip install redis
 ADD shared/proj /home/ubuntu/proj
 ADD api/app.py /home/ubuntu/
 WORKDIR /home/ubuntu/
