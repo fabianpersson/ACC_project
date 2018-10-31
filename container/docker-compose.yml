@@ -8,8 +8,10 @@ services:
         environment:
             - RABBITMQ_DEFAULT_USER=fabian
             - RABBITMQ_DEFAULT_PASS=fabian
-        networks:
-            - web
+
+            
+        #networks:
+        #    - web
         deploy:
             placement:
                 constraints: [node.role == manager]
@@ -31,8 +33,8 @@ services:
             - 8000:8000 #does not need to be exposed in dockerfile?
         environment:
             - SERVICE_PORTS=8000
-        networks:
-            - web
+        #networks:
+        #    - web
         deploy:
             placement:
                 constraints: [node.role == manager]
@@ -44,28 +46,43 @@ services:
             dockerfile: ./celery-queue/Dockerfile
         links:
             - rabbit
+      #      - redis
         depends_on:
             - rabbit
-        networks:
-            - web    
+     #       - redis
+       # networks:
+       #     - web    
        
-    proxy:
-        image: dockercloud/haproxy
-        depends_on:
-            - flask
-        environment:
-            - BALANCE=leastconn
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock
-        ports:
-            - 80:80
-        networks:
-            - web
-        deploy:
-            placement:
-                constraints: [node.role == manager]
-networks:
-  web:
-    driver: overlay
+    #redis:
+    #    hostname: redis
+    #    image: "redis:alpine"
+    #    networks:
+    #        - web   
+    #    ports:
+    #        - 6379:6379
+    #    deploy:
+    #        placement:
+    #            constraints: [node.role == manager]
+        
+
+            
+#    proxy:
+#        image: dockercloud/haproxy
+#        depends_on:
+#            - flask
+#        environment:
+#            - BALANCE=leastconn
+#        volumes:
+#            - /var/run/docker.sock:/var/run/docker.sock
+#        ports:
+#            - 80:80
+#        networks:
+#            - web
+#        deploy:
+#            placement:
+#                constraints: [node.role == manager]
+#networks:
+#  web:
+#    driver: overlay
     
         

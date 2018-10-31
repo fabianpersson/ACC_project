@@ -4,6 +4,8 @@ RUN apt-get install -y python && apt-get install -y python-pip
 RUN apt-get install -y octave 
 RUN pip install --upgrade pip
 RUN pip install celery
+RUN pip install sqlalchemy
+RUN pip install redis
 RUN pip install numpy
 ADD shared/proj /home/ubuntu/proj
 #ADD celery-queue/files /home/ubuntu/files

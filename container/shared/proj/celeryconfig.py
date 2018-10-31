@@ -1,5 +1,5 @@
-broker_url = 'amqp://fabian:fabian@rabbit:5672/'
-broker_pool_limit = 1 # Will decrease connection usage
+broker_url = 'amqp://fabian:fabian@rabbit:5672'
+broker_pool_limit = None # Will decrease connection usage
 broker_heartbeat = None # We're using TCP keep-alive instead
 broker_connection_timeout = 30 # May require a long timeout due to Linux DNS timeouts etc
 result_backend = 'rpc://' # AMQP is not recommended as result backend as it creates thousands of queues
