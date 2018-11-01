@@ -16,14 +16,12 @@ import time
 
 
 @app.route('/api/v1.0/<string:method>')
-@app.route('/api/v1.0/<string:method>/<string:problem>', methods=['GET'])
-def index(method, problem='I'):
+@app.route('/api/v1.0/<string:method>/<string:problem>/<int:s1>/<int:s2>/<int:s3>/<int:K>/<int:T>/<int:r>/<int:sig>', methods=['GET'])
+def index(method, problem='I', s1 = 90, s2 = 100, s3 = 110, K = 100, T = 1.0, r = 0.03 , sig = 0.15):
     available_problems = ['I', 'II']
     available_methods = ['COS', 'RBF-FD']
-    if problem == "I":
-        parameters = ([90, 100, 110], 100, 1.0, 0.03, 0.15)
-    elif problem == "II":
-        parameters = ([97, 98, 99], 100, 0.25, 0.10, 0.01)
+    parameters = ([s1, s2, s3], K, T, r, sig)
+    
     
     if problem in available_problems and method in available_methods: #if it's a valid request
         methods = [method]
