@@ -41,12 +41,11 @@ def index(method, problem='I'):
     else:
         return jsonify("invalid parameters.")
     
-@app.route('/api/v1.0/task/<string:id_task>')    
-def get_task(id_task): 
-    return jsonify(get_celery_task(id_task))
+@app.route('/api/v1.0/task/<string:request_id>')    
+def get_task(request_id): 
+    res = cache.get(request_id)
+    return jsonify(res)
    
-        
-    
     
 #generate tasks        
 def generate_tasks(methods, base_func, base_path, parameters, problem):
