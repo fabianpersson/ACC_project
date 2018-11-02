@@ -11,6 +11,7 @@ RUN pip install redis
 ADD shared/proj /home/ubuntu/proj
 ADD api/app.py /home/ubuntu/
 WORKDIR /home/ubuntu/
+ENV PW=$pw
 EXPOSE 8000
 ENTRYPOINT python app.py
 

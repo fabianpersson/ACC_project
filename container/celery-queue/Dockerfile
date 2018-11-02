@@ -8,10 +8,12 @@ RUN pip install sqlalchemy
 RUN pip install redis
 RUN pip install numpy
 ADD shared/proj /home/ubuntu/proj
+
+ENV PW=$pw
 #ADD celery-queue/files /home/ubuntu/files
 ADD benchop.tar.gz/ /home/ubuntu/files/
 RUN ls /home/ubuntu/files/
 WORKDIR /home/ubuntu/
 EXPOSE 5672 
-ENTRYPOINT celery -A proj worker --without-heartbeat --loglevel=info
+ENTRYPOINT celery -A proj worker --without-heartbeat --loglevel=info --concurrency=2
 

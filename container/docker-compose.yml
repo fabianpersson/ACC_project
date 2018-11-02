@@ -17,7 +17,10 @@ services:
             - /var/run/docker.sock:/docker.sock
 
     flask:
-        image: 192.168.1.76:5000/api
+        hostname: flask
+        image: 192.168.1.21:5000/api
+        environment:
+            - PW=test
         build:
             context: .
             dockerfile: ./api/Dockerfile
@@ -25,8 +28,10 @@ services:
             - .:/app
         links:
             - rabbit
+            - redis
         depends_on:
             - rabbit
+            - redis
         ports:
             - 8000:8000 #does not need to be exposed in dockerfile?
         environment:
@@ -38,7 +43,28 @@ services:
                 constraints: [node.role == manager]
 
     worker:
-        image: 192.168.1.76:5000/celery-queue
+        image: 192.168.1.21:5000/celery-queue
+        environment:
+            - PW=test
+        build:
+            context: .
+            dockerfile: ./celery-queue/Dockerfile
+        links:
+            - rabbit
+        depends_on:
+            - rabbit
+        networks:
+            - web   
+            
+        deploy:
+            placement:
+                constraints: [node.role != manager]
+            
+    worker-master:
+        hostname: worker-master
+        image: 192.168.1.21:5000/celery-queue
+        environment:
+            - pw=${pw}
         build:
             context: .
             dockerfile: ./celery-queue/Dockerfile
@@ -49,20 +75,30 @@ services:
             - rabbit
             - redis
         networks:
-            - web    
+            - web   
+        deploy:
+            placement:
+                constraints: [node.role == manager]
+                
+        entrypoint: celery -A proj worker --without-heartbeat --loglevel=info --concurrency=4 -Q master,celery
        
     redis:
         hostname: redis
-        image: "redis:alpine"
+        image: redis
+        #command: redis-server --requirepass ${PW}
+        image: 192.168.1.21:5000/redis-master
+        build:
+            context: .
+            dockerfile: ./redis/Dockerfile
         networks:
             - web   
+        #network_mode: "host"
         ports:
             - 6379:6379
         deploy:
             placement:
-                constraints: [node.role == manager]
-        
-
+                    constraints: [node.role != manager]
+       
             
 #    proxy:
 #        image: dockercloud/haproxy

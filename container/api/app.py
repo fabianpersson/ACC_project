@@ -31,7 +31,7 @@ def index(method, problem='I', s1 = 90, s2 = 100, s3 = 110, K = 100, T = 1.0, r 
 
         request_id = cache.incr('request_id')
         
-        callback = save.s(request_id)
+        callback = save.s(request_id, queue='master')
         tasks = generate_tasks(methods, base_func, base_path, parameters, problem)
         jobs = execute_tasks(tasks)(callback)       
 
