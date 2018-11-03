@@ -85,14 +85,12 @@ services:
     redis:
         hostname: redis
         image: redis
-        #command: redis-server --requirepass ${PW}
         image: 192.168.1.21:5000/redis-master
         build:
             context: .
             dockerfile: ./redis/Dockerfile
         networks:
             - web   
-        #network_mode: "host"
         ports:
             - 6379:6379
         deploy:

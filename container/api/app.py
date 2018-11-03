@@ -6,6 +6,7 @@ import subprocess
 import sys
 from proj.tasks import run_octave_file, save, get_task as get_celery_task
 from proj.celery import app as celery_app
+
 from celery.result import AsyncResult, GroupResult
 from proj.celeryconfig import result_backend
 from proj.redisconfig import cache
@@ -14,6 +15,11 @@ import time
 app = Flask(__name__)
 import time
 
+@app.route('/api/v1.0/get_stats')
+def get_stats():
+    from task.timings import timings
+    return jsonify(timings)
+    
 
 @app.route('/api/v1.0/<string:method>')
 @app.route('/api/v1.0/<string:method>/<string:problem>/<int:s1>/<int:s2>/<int:s3>/<int:K>/<int:T>/<int:r>/<int:sig>', methods=['GET'])
@@ -31,7 +37,7 @@ def index(method, problem='I', s1 = 90, s2 = 100, s3 = 110, K = 100, T = 1.0, r 
 
         request_id = cache.incr('request_id')
         
-        callback = save.s(request_id, queue='master')
+        callback = save.s(request_id)
         tasks = generate_tasks(methods, base_func, base_path, parameters, problem)
         jobs = execute_tasks(tasks)(callback)       
 
