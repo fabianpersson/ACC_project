@@ -3,10 +3,11 @@ from .celery import app
 from .octave import Octave
 from celery.signals import task_prerun, task_postrun
 import time
-from proj.redisconfig import cache, benchmark
+from proj.redisconfig import cache
 import socket 
 import os
 
+BENCHMARK = True
 
 @app.task
 def run_octave_file(function, cwd, parameters):
@@ -58,8 +59,11 @@ def task_prerun_handler(signal, sender, task_id, task, args, kwargs, **extras):
 def task_postrun_handler(signal, sender, task_id, task, args, kwargs, retval, state, **extras):
     try:
         end = time.time()
-        cost = end - d.pop(task_id)
+        start = d.pop(task_id)
+        cost = end - start
     except KeyError:
         cost = -1
-    benchmark.set('task_id', [os.uname()[1], task_id, end, args[0]]) #hostname/worker, start, end, args/resources group     
+    if BENCHMARK:   
+        cache.set(task_id, [task_id, os.uname()[1], start, end, cost, str(task), args[0]]) #hostname/worker, start, end, args/resources group     
+    
     print task, cost

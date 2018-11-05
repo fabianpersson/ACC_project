@@ -1,0 +1,20 @@
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 2305
+Server: Werkzeug/0.14.1 Python/2.7.15rc1
+Date: Sat, 03 Nov 2018 19:58:19 GMT
+
+[
+  "['worker-master', 1541274920.322226, 1541274926.097326, 5.775099992752075, <@task: proj.tasks.run_octave_file of proj at 0x7fc162fde490>, u'BSeuCallUI_RBFFD']", 
+  "['cca5dfa45963', 1541274881.36398, 1541274881.424703, 0.06072282791137695, <@task: celery.chord_unlock of proj at 0x7f8e428c0490>, u'16ed84b7-3622-4da9-aca9-8538ec44fdcf']", 
+  "['cca5dfa45963', 1541274876.567034, 1541274877.03153, 0.4644958972930908, <@task: proj.tasks.run_octave_file of proj at 0x7f8e428c0490>, u'BSeuCallUI_COS']", 
+  "['worker-master', 1541274927.911956, 1541274927.96276, 0.05080389976501465, <@task: celery.chord_unlock of proj at 0x7fc162fde490>, u'cfff3390-540e-4a91-9548-64bee1d8edb9']", 
+  "['worker-master', 1541274969.514248, 1541274970.030511, 0.5162630081176758, <@task: proj.tasks.run_octave_file of proj at 0x7fc162fde490>, u'BSeuCallUII_COS']", 
+  "['worker-master', 1541274964.766503, 1541274969.339041, 4.572537899017334, <@task: proj.tasks.run_octave_file of proj at 0x7fc162fde490>, u'BSeuCallUI_RBFFD']", 
+  "['cca5dfa45963', 1541274982.990837, 1541274983.080001, 0.08916401863098145, <@task: proj.tasks.save of proj at 0x7f8e428c0490>, [{u'answer': [2.7582, 7.481, 14.6613], u'name': u'BSeuCallUII_COS', u'time': 0.18273282051086426}]]", 
+  "['cca5dfa45963', 1541274927.966156, 1541274928.064849, 0.0986928939819336, <@task: proj.tasks.save of proj at 0x7f8e428c0490>, [{u'answer': [2.7582, 7.485, 14.7021], u'name': u'BSeuCallUI_RBFFD', u'time': 5.645897150039673}]]", 
+  "['worker-master', 1541274972.414479, 1541274972.449406, 0.0349268913269043, <@task: celery.chord_unlock of proj at 0x7fc162fde490>, u'6b306d68-4bde-43c7-beab-80127b608388']", 
+  "['cca5dfa45963', 1541274881.423816, 1541274881.840801, 0.41698503494262695, <@task: proj.tasks.save of proj at 0x7f8e428c0490>, [{u'answer': [2.7584, 7.485, 14.7023], u'name': u'BSeuCallUI_COS', u'time': 0.17148900032043457}]]", 
+  "['worker-master', 1541274972.45378, 1541274972.5674, 0.11362004280090332, <@task: proj.tasks.save of proj at 0x7fc162fde490>, [{u'answer': [2.7582, 7.485, 14.7021], u'name': u'BSeuCallUI_RBFFD', u'time': 4.449902057647705}]]", 
+  "['worker-master', 1541274982.935934, 1541274982.990335, 0.05440092086791992, <@task: celery.chord_unlock of proj at 0x7fc162fde490>, u'13d3aa73-ef29-4f5a-a11f-ffeb36511268']"
+]

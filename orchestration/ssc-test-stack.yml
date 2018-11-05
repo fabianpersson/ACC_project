@@ -59,6 +59,10 @@ parameters:
     type: string
     description: id of the secturity group
     default: 711972e1-f0d5-45bd-b577-156e9cfd0f62
+  redis_password: 
+    type: string
+    description: Password to be used for redis auth
+    default: ENV['pw']
     
     
   
@@ -119,37 +123,43 @@ resources:
     type: OS::Heat::SoftwareConfig
     properties:
       group: ungrouped
-      config: |
-       #!/bin/sh
-       echo "Hello, World!"
-       echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWrwaFLOgkwlaYhSSqNvIzpFCvwkei3X38ryUHukm0msjXGpIFEFAlwrCOLXz8qb3kmUPy0sqltfxzOanyprQ6p3fJ0+C4/qCH7F9Z8O/9CmSeLxywthAFaBmwS+4aRr11wE2WFp/wkE9sx1JBvBQRPuWMdKaVfZRUnStK6Vu4NDRtUkCWFa9f8btnOu+OSALIc4wJVqJf5Cp2v3g74Sm7gjQ61gCzekkHj8JyG9M0qFp59XYKdTmWlQo8qqzhueTw/xoGXLbf1DAPtyDVp3ZNeKAgJS5RzA6IIdT7BmiEEJNuJ9wH99dM2y+pTmZIcfI0K1Sw4r9ms/W23q++zY9x ubuntu@f-test" >> /home/ubuntu/.ssh/authorized_keys
-       echo "added keys"
-       
-       apt-get update -y
-       apt-get upgrade -y
+      config:
+        str_replace:
+          params: 
+            "%pw%": { get_param: redis_password }
+          template: |
+           #!/bin/sh
+           echo "Hello, World!"
+           echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWrwaFLOgkwlaYhSSqNvIzpFCvwkei3X38ryUHukm0msjXGpIFEFAlwrCOLXz8qb3kmUPy0sqltfxzOanyprQ6p3fJ0+C4/qCH7F9Z8O/9CmSeLxywthAFaBmwS+4aRr11wE2WFp/wkE9sx1JBvBQRPuWMdKaVfZRUnStK6Vu4NDRtUkCWFa9f8btnOu+OSALIc4wJVqJf5Cp2v3g74Sm7gjQ61gCzekkHj8JyG9M0qFp59XYKdTmWlQo8qqzhueTw/xoGXLbf1DAPtyDVp3ZNeKAgJS5RzA6IIdT7BmiEEJNuJ9wH99dM2y+pTmZIcfI0K1Sw4r9ms/W23q++zY9x ubuntu@f-test" >> /home/ubuntu/.ssh/authorized_keys
+           echo "added keys"
 
-       apt-get install \
-       apt-transport-https \
-       ca-certificates \
-       curl \
-       software-properties-common
-            
-       curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-            
-       add-apt-repository \
-       "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-       $(lsb_release -cs) \
-       stable"
+           apt-get update -y
+           apt-get upgrade -y
+
+           apt-get install \
+           apt-transport-https \
+           ca-certificates \
+           curl \
+           software-properties-common
+
+           curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+           add-apt-repository \
+           "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+           $(lsb_release -cs) \
+           stable"
+
+           apt-get update
+
+           apt-get install docker-ce -y
+
+           echo '{ "insecure-registries" : ["192.168.1.21:5000"] }' > /etc/docker/daemon.json
            
-       apt-get update
-            
-       apt-get install docker-ce -y
-       
-       echo '{ "insecure-registries" : ["192.168.1.76:5000"] }' > /etc/docker/daemon.json
-       
-       service docker restart
-            
-       docker swarm join --token SWMTKN-1-4srrfzlproldj92d7cqllwf6vkboqwbnx6ska4xx7u3xvjcz28-2frzpc353orvvid24nnnhwa2g 192.168.1.76:2377
+           export pw=%pw%
+
+           service docker restart
+
+           docker swarm join --token SWMTKN-1-02iw6s4agabgn3gb8nh4cb3959a4gdjliscqxxb6rvcxxb6yov-3eaian0nod71k0oc2suxpq1wi 192.168.1.21:2377
    
   my_instance0:
     type: OS::Nova::Server
@@ -189,18 +199,7 @@ resources:
       networks:
         - port: { get_resource: instance_port2 }         
       user_data: {get_resource: boot_script}
-      user_data_format: RAW
-
-  floating_ip:
-    type: OS::Neutron::FloatingIP
-    properties:
-      floating_network: { get_param: public_network }
-
-  floating_ip_assoc:
-    type: OS::Neutron::FloatingIPAssociation
-    properties:
-      floatingip_id: { get_resource: floating_ip }
-      port_id: { get_resource: instance_port0 } 
+      user_data_format: RAW 
 
 # Output in case of successful booting
 outputs:

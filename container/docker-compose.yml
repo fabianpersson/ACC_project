@@ -19,8 +19,6 @@ services:
     flask:
         hostname: flask
         image: 192.168.1.21:5000/api
-        environment:
-            - PW=test
         build:
             context: .
             dockerfile: ./api/Dockerfile
@@ -44,8 +42,6 @@ services:
 
     worker:
         image: 192.168.1.21:5000/celery-queue
-        environment:
-            - PW=test
         build:
             context: .
             dockerfile: ./celery-queue/Dockerfile
@@ -56,36 +52,31 @@ services:
         networks:
             - web   
             
-        deploy:
-            placement:
-                constraints: [node.role != manager]
+
             
-    worker-master:
-        hostname: worker-master
-        image: 192.168.1.21:5000/celery-queue
-        environment:
-            - pw=${pw}
-        build:
-            context: .
-            dockerfile: ./celery-queue/Dockerfile
-        links:
-            - rabbit
-            - redis
-        depends_on:
-            - rabbit
-            - redis
-        networks:
-            - web   
-        deploy:
-            placement:
-                constraints: [node.role == manager]
+    #worker-master:
+    #    hostname: worker-master
+    #    image: 192.168.1.21:5000/celery-queue
+    #    build:
+    #        context: .
+    #        dockerfile: ./celery-queue/Dockerfile
+    #    links:
+    #        - rabbit
+    #        - redis
+    #    depends_on:
+    #        - rabbit
+    #        - redis
+    #    networks:
+    #        - web   
+    #    deploy:
+    #        placement:
+    #            constraints: [node.role == manager]
                 
         entrypoint: celery -A proj worker --without-heartbeat --loglevel=info --concurrency=4 -Q master,celery
        
     redis:
         hostname: redis
-        image: redis
-        image: 192.168.1.21:5000/redis-master
+        image: 192.168.1.21:5000/redis
         build:
             context: .
             dockerfile: ./redis/Dockerfile

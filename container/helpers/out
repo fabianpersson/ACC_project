@@ -1,0 +1,1488 @@
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 35641
+Server: Werkzeug/0.14.1 Python/2.7.15rc1
+Date: Mon, 05 Nov 2018 09:04:14 GMT
+
+[
+  [
+    "2023b4b6-7c1b-4261-a614-999cb7cf0e57", 
+    "3feb547cc4ff", 
+    1541407593.985523, 
+    1541407594.086997, 
+    0.10147404670715332, 
+    "<@task: proj.tasks.save of proj at 0x7f0c54d7e490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_RBFFD", 
+        "time": 956.7635450363159
+      }
+    ]
+  ], 
+  [
+    "3723830c-adc6-4a9b-a64e-925930da9ee9", 
+    "f85884d6dd29", 
+    1541407656.573344, 
+    1541407656.629285, 
+    0.055941104888916016, 
+    "<@task: celery.chord_unlock of proj at 0x7fa6fbf55490>", 
+    "cfe5d8db-0ecf-4220-8a9c-b9b7b86ff081"
+  ], 
+  [
+    "6fbac6bf-1543-45ae-a01a-7545494762ce", 
+    "d1cb2364de3e", 
+    1541406648.008878, 
+    1541406655.691141, 
+    7.682262897491455, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f490f204490>", 
+    "BSeuCallUI_RBFFD"
+  ], 
+  [
+    "7e717d32-7d9a-4fee-9c66-3546249caa0c", 
+    "d1cb2364de3e", 
+    1541406655.679491, 
+    1541406655.831943, 
+    0.1524519920349121, 
+    "<@task: celery.chord_unlock of proj at 0x7f490f204490>", 
+    "ecca4119-2b79-4c62-a32d-6d792ce936e6"
+  ], 
+  [
+    "a9ffabcd-8462-4874-9be1-0348453ea94f", 
+    "d1cb2364de3e", 
+    1541406636.280329, 
+    1541406646.882549, 
+    10.602220058441162, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f490f204490>", 
+    "BSeuCallUI_RBFFD"
+  ], 
+  [
+    "15efbe86-b4c3-4e63-a2da-531360a68439", 
+    "b50ca5aad85b", 
+    1541406654.753638, 
+    1541406654.95963, 
+    0.2059919834136963, 
+    "<@task: proj.tasks.save of proj at 0x7f6bfa045490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_COS", 
+        "time": 6.800716161727905
+      }
+    ]
+  ], 
+  [
+    "05357964-4169-4fbd-b41d-ab6fb2d8cbcf", 
+    "f85884d6dd29", 
+    1541407654.637145, 
+    1541407654.90379, 
+    0.2666449546813965, 
+    "<@task: proj.tasks.save of proj at 0x7fa6fbf55490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_RBFFD", 
+        "time": 1019.4917449951172
+      }
+    ]
+  ], 
+  [
+    "0e6f2ac8-454a-44dc-b060-e4705827af5b", 
+    "d1cb2364de3e", 
+    1541406635.190355, 
+    1541406636.25217, 
+    1.0618150234222412, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f490f204490>", 
+    "BSeuCallUI_COS"
+  ], 
+  [
+    "c2713203-c28d-4292-9a71-06e67ebc76bc", 
+    "b50ca5aad85b", 
+    1541406653.249114, 
+    1541406653.941735, 
+    0.6926209926605225, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f6bfa045490>", 
+    "BSeuCallUI_COS"
+  ], 
+  [
+    "93be8bc7-19ba-4d22-ad1a-46a2626f4478", 
+    "3feb547cc4ff", 
+    1541406641.056065, 
+    1541407584.860144, 
+    943.8040788173676, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f0c54d7e490>", 
+    "BSeuCallUII_RBFFD"
+  ], 
+  [
+    "b51b375a-10e7-4cef-b0fe-ce6fb0e3a01e", 
+    "d1cb2364de3e", 
+    1541406648.215742, 
+    1541406648.279512, 
+    0.06376981735229492, 
+    "<@task: celery.chord_unlock of proj at 0x7f490f204490>", 
+    "a969ae64-6d26-4481-b932-82d12446cd44"
+  ], 
+  [
+    "11b74694-3dcc-4cd3-a5ac-2cf3ba2735a1", 
+    "d1cb2364de3e", 
+    1541406648.29005, 
+    1541406648.380485, 
+    0.09043502807617188, 
+    "<@task: celery.chord_unlock of proj at 0x7f490f204490>", 
+    "e7966436-48c4-4c37-9a00-82250705386d"
+  ], 
+  [
+    "1c9ffccd-2545-4f1a-a007-916432bb4fee", 
+    "b50ca5aad85b", 
+    1541406634.397853, 
+    1541406641.7873, 
+    7.389447212219238, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f6bfa045490>", 
+    "BSeuCallUI_COS"
+  ], 
+  [
+    "732322fb-fcb1-4c80-a338-2bb9ec9415b6", 
+    "b50ca5aad85b", 
+    1541407588.596238, 
+    1541407588.636823, 
+    0.04058504104614258, 
+    "<@task: celery.chord_unlock of proj at 0x7f6bfa045490>", 
+    "c41f6f3c-64f7-4395-93af-ad484cc465ba"
+  ], 
+  [
+    "89347812-831d-41b4-9040-6852c0129744", 
+    "3feb547cc4ff", 
+    1541406640.900973, 
+    1541406640.960163, 
+    0.05919003486633301, 
+    "<@task: celery.chord_unlock of proj at 0x7f0c54d7e490>", 
+    "c95e9c0d-7e12-4691-9278-5512b114dd82"
+  ], 
+  [
+    "84d53529-4929-4bdb-af8f-8725f506cf06", 
+    "b50ca5aad85b", 
+    1541406656.105769, 
+    1541406656.16608, 
+    0.060311079025268555, 
+    "<@task: celery.chord_unlock of proj at 0x7f6bfa045490>", 
+    "005683d1-b147-4cc7-a4cc-57c05727f909"
+  ], 
+  [
+    "8bb6c05a-463b-45a7-a344-c51de9cd8946", 
+    "f85884d6dd29", 
+    1541406659.712563, 
+    1541407673.047954, 
+    1013.3353910446167, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7fa6fbf55490>", 
+    "BSeuCallUII_RBFFD"
+  ], 
+  [
+    "6d084e81-5d84-4712-ae29-5d85c328f5cc", 
+    "d1cb2364de3e", 
+    1541406656.177737, 
+    1541406656.433024, 
+    0.25528693199157715, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7584, 
+          7.485, 
+          14.7023
+        ], 
+        "name": "BSeuCallUI_COS", 
+        "time": 6.798786163330078
+      }
+    ]
+  ], 
+  [
+    "fc7c50b1-adab-45b4-bd51-fa41ffd0c66d", 
+    "d1cb2364de3e", 
+    1541406648.219503, 
+    1541406648.280643, 
+    0.06114006042480469, 
+    "<@task: celery.chord_unlock of proj at 0x7f490f204490>", 
+    "f56279a6-52a4-40d4-bfcf-7de483a69823"
+  ], 
+  [
+    "0ccd82ce-5818-4921-8c88-9cd5371bed95", 
+    "f85884d6dd29", 
+    1541407654.569465, 
+    1541407654.630979, 
+    0.06151413917541504, 
+    "<@task: celery.chord_unlock of proj at 0x7fa6fbf55490>", 
+    "6c50ef9f-c9af-4e80-82ab-256ddf634cb0"
+  ], 
+  [
+    "28f72a10-4e20-4534-a2a1-33bea6e36546", 
+    "d1cb2364de3e", 
+    1541406636.284199, 
+    1541406636.943415, 
+    0.6592159271240234, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f490f204490>", 
+    "BSeuCallUI_COS"
+  ], 
+  [
+    "3d1b1198-922d-4431-9130-84558bffb266", 
+    "b50ca5aad85b", 
+    1541407586.614139, 
+    1541407586.650592, 
+    0.0364530086517334, 
+    "<@task: celery.chord_unlock of proj at 0x7f6bfa045490>", 
+    "e8e85ee2-f080-4b57-9589-529b1a469b13"
+  ], 
+  [
+    "82a99130-f209-4399-9345-8bad40149778", 
+    "b50ca5aad85b", 
+    1541407656.629459, 
+    1541407656.915114, 
+    0.28565502166748047, 
+    "<@task: proj.tasks.save of proj at 0x7f6bfa045490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_COS", 
+        "time": 0.5999670028686523
+      }
+    ]
+  ], 
+  [
+    "50b65a5b-f2de-4732-8ee4-7151e13381d1", 
+    "b50ca5aad85b", 
+    1541407656.52576, 
+    1541407656.797972, 
+    0.27221202850341797, 
+    "<@task: proj.tasks.save of proj at 0x7f6bfa045490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_RBFFD", 
+        "time": 579.7593657970428
+      }
+    ]
+  ], 
+  [
+    "6f5a3724-b012-40a6-a588-48baf227150e", 
+    "b50ca5aad85b", 
+    1541406641.927012, 
+    1541406642.646216, 
+    0.7192039489746094, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f6bfa045490>", 
+    "BSeuCallUII_COS"
+  ], 
+  [
+    "38d530eb-d2a0-419c-afe1-606ebb6468fc", 
+    "3feb547cc4ff", 
+    1541407602.424079, 
+    1541407602.471529, 
+    0.04745006561279297, 
+    "<@task: celery.chord_unlock of proj at 0x7f0c54d7e490>", 
+    "ee762667-a51c-4c66-8cd9-86dc4e3428d0"
+  ], 
+  [
+    "443346c5-ff79-4724-8cfe-08f59126f10c", 
+    "b50ca5aad85b", 
+    1541407678.650811, 
+    1541407678.721562, 
+    0.07075095176696777, 
+    "<@task: proj.tasks.save of proj at 0x7f6bfa045490>", 
+    [
+      {
+        "answer": [
+          2.7582, 
+          7.485, 
+          14.7021
+        ], 
+        "name": "BSeuCallUI_RBFFD", 
+        "time": 10.540412187576294
+      }
+    ]
+  ], 
+  [
+    "1b45dcdb-909f-4c20-8a5c-001b42a0e0ae", 
+    "d1cb2364de3e", 
+    1541406648.727496, 
+    1541406648.822086, 
+    0.0945901870727539, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7584, 
+          7.485, 
+          14.7023
+        ], 
+        "name": "BSeuCallUI_COS", 
+        "time": 3.9341320991516113
+      }
+    ]
+  ], 
+  [
+    "86e67be4-adab-48f4-83cb-b6c842f8e23a", 
+    "d1cb2364de3e", 
+    1541407655.562188, 
+    1541407655.622288, 
+    0.06010007858276367, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7582, 
+          7.485, 
+          14.7021
+        ], 
+        "name": "BSeuCallUI_RBFFD", 
+        "time": 10.909471988677979
+      }
+    ]
+  ], 
+  [
+    "f3bdca29-2b8c-439e-8eb5-f236416a1a17", 
+    "f85884d6dd29", 
+    1541406634.565204, 
+    1541406647.551829, 
+    12.98662519454956, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7fa6fbf55490>", 
+    "BSeuCallUI_RBFFD"
+  ], 
+  [
+    "4ce6cd62-6da0-4fda-b8c1-8d395b38e28b", 
+    "d1cb2364de3e", 
+    1541406650.546089, 
+    1541406650.617493, 
+    0.07140398025512695, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7584, 
+          7.485, 
+          14.7023
+        ], 
+        "name": "BSeuCallUI_COS", 
+        "time": 0.4077889919281006
+      }
+    ]
+  ], 
+  [
+    "893143db-71f8-4a12-8d01-fc0c6c9945f1", 
+    "3feb547cc4ff", 
+    1541407586.052024, 
+    1541407586.133822, 
+    0.08179807662963867, 
+    "<@task: celery.chord_unlock of proj at 0x7f0c54d7e490>", 
+    "b8920a63-588d-4888-9bef-1ab2c5af2633"
+  ], 
+  [
+    "c3a73344-a6ff-48fb-aa46-e0d145f36ea2", 
+    "d1cb2364de3e", 
+    1541406650.047476, 
+    1541406650.150104, 
+    0.10262799263000488, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7582, 
+          7.485, 
+          14.7021
+        ], 
+        "name": "BSeuCallUI_RBFFD", 
+        "time": 10.338136911392212
+      }
+    ]
+  ], 
+  [
+    "f2dba755-8973-4aca-bbde-f79d082fa5d1", 
+    "b50ca5aad85b", 
+    1541406654.462242, 
+    1541406654.521565, 
+    0.05932307243347168, 
+    "<@task: celery.chord_unlock of proj at 0x7f6bfa045490>", 
+    "c38918a4-6263-4eaf-b737-ca237592543a"
+  ], 
+  [
+    "5f638349-6c33-4ab5-901e-eab4f2a70a6e", 
+    "3feb547cc4ff", 
+    1541406653.31993, 
+    1541407602.447833, 
+    949.1279029846191, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f0c54d7e490>", 
+    "BSeuCallUII_RBFFD"
+  ], 
+  [
+    "46a978f8-b85a-4efc-a940-f01e55c22d6c", 
+    "f85884d6dd29", 
+    1541406658.901505, 
+    1541406659.704189, 
+    0.8026840686798096, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7fa6fbf55490>", 
+    "BSeuCallUII_COS"
+  ], 
+  [
+    "86b4793f-5204-46e8-a74b-0d112f71f03a", 
+    "b50ca5aad85b", 
+    1541406655.317183, 
+    1541406655.382211, 
+    0.06502795219421387, 
+    "<@task: celery.chord_unlock of proj at 0x7f6bfa045490>", 
+    "b3b229ec-4dfb-4c6c-a96a-5100df816e90"
+  ], 
+  [
+    "666f4d9e-c95a-47a5-a595-52b836ce0022", 
+    "b50ca5aad85b", 
+    1541406634.289125, 
+    1541406641.905469, 
+    7.616343975067139, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f6bfa045490>", 
+    "BSeuCallUII_COS"
+  ], 
+  [
+    "34a56b9c-524d-41cc-bdb4-6415abbbcb16", 
+    "d1cb2364de3e", 
+    1541407667.602995, 
+    1541407667.665639, 
+    0.06264400482177734, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_RBFFD", 
+        "time": 1025.236713886261
+      }
+    ]
+  ], 
+  [
+    "e6a2aeab-a73a-4450-ad89-4944209ffa32", 
+    "d1cb2364de3e", 
+    1541406647.187788, 
+    1541406647.929768, 
+    0.7419800758361816, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f490f204490>", 
+    "BSeuCallUI_COS"
+  ], 
+  [
+    "8a6addbe-ba93-422f-b021-c4089e1b3a6d", 
+    "3feb547cc4ff", 
+    1541406653.245432, 
+    1541406653.31419, 
+    0.06875801086425781, 
+    "<@task: celery.chord_unlock of proj at 0x7f0c54d7e490>", 
+    "b0f35e8e-d417-46d8-9a1f-50a7ab98938b"
+  ], 
+  [
+    "868250d7-7c46-42f2-bdaa-b5cc71e4a72b", 
+    "f85884d6dd29", 
+    1541407678.587346, 
+    1541407678.649228, 
+    0.06188201904296875, 
+    "<@task: celery.chord_unlock of proj at 0x7fa6fbf55490>", 
+    "e87d0501-b769-439a-b050-c2c57601e5e3"
+  ], 
+  [
+    "363c03d1-eef5-4f3a-9c1a-21a7297e7e6e", 
+    "3feb547cc4ff", 
+    1541406640.967696, 
+    1541406641.055344, 
+    0.08764815330505371, 
+    "<@task: celery.chord_unlock of proj at 0x7f0c54d7e490>", 
+    "dc023d16-8d58-4f4b-8834-26dd9df772d7"
+  ], 
+  [
+    "6e4ce83f-0f94-412a-bbd9-fe9233266992", 
+    "3feb547cc4ff", 
+    1541407673.094342, 
+    1541407673.148077, 
+    0.05373501777648926, 
+    "<@task: proj.tasks.save of proj at 0x7f0c54d7e490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_RBFFD", 
+        "time": 1013.249696969986
+      }
+    ]
+  ], 
+  [
+    "ece85f76-0fe0-4c2b-9ca8-90ce24b09138", 
+    "3feb547cc4ff", 
+    1541407587.199311, 
+    1541407587.403308, 
+    0.20399689674377441, 
+    "<@task: proj.tasks.save of proj at 0x7f0c54d7e490>", 
+    [
+      {
+        "answer": [
+          2.7584, 
+          7.485, 
+          14.7023
+        ], 
+        "name": "BSeuCallUI_COS", 
+        "time": 0.5599210262298584
+      }
+    ]
+  ], 
+  [
+    "37b43b1b-d9e6-419a-9a6f-0c39080218e6", 
+    "d1cb2364de3e", 
+    1541406654.661786, 
+    1541406654.749636, 
+    0.08784985542297363, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_COS", 
+        "time": 0.5127589702606201
+      }
+    ]
+  ], 
+  [
+    "a6b0c464-9499-4ce0-8558-c19d3261fe75", 
+    "b50ca5aad85b", 
+    1541406641.863673, 
+    1541406653.038058, 
+    11.174385070800781, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f6bfa045490>", 
+    "BSeuCallUI_RBFFD"
+  ], 
+  [
+    "8fd295e1-6250-4577-a6d4-1ca9f5cddee2", 
+    "d1cb2364de3e", 
+    1541407587.567979, 
+    1541407587.632883, 
+    0.06490397453308105, 
+    "<@task: celery.chord_unlock of proj at 0x7f490f204490>", 
+    "2e1f0a90-91f0-451b-8edb-f889f7170b58"
+  ], 
+  [
+    "a8730ba3-6a43-49d5-bfd5-75a964c10e04", 
+    "d1cb2364de3e", 
+    1541407587.63795, 
+    1541407587.691598, 
+    0.05364799499511719, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7582, 
+          7.485, 
+          14.7021
+        ], 
+        "name": "BSeuCallUI_RBFFD", 
+        "time": 7.587179183959961
+      }
+    ]
+  ], 
+  [
+    "14b67f30-63dd-46ae-8552-f70c262526a3", 
+    "d1cb2364de3e", 
+    1541406646.628048, 
+    1541406647.170925, 
+    0.5428769588470459, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f490f204490>", 
+    "BSeuCallUI_COS"
+  ], 
+  [
+    "a29e0944-04f7-42ac-88e9-3f776bac5cd9", 
+    "f85884d6dd29", 
+    1541406634.224816, 
+    1541407653.986384, 
+    1019.7615678310394, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7fa6fbf55490>", 
+    "BSeuCallUII_RBFFD"
+  ], 
+  [
+    "eefa6835-f10a-4b94-955a-5cef15ada044", 
+    "d1cb2364de3e", 
+    1541406650.701803, 
+    1541406651.013513, 
+    0.3117101192474365, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7584, 
+          7.485, 
+          14.7023
+        ], 
+        "name": "BSeuCallUI_COS", 
+        "time": 0.4520571231842041
+      }
+    ]
+  ], 
+  [
+    "7ba21b58-f125-43ca-9a18-827dff367ec8", 
+    "b50ca5aad85b", 
+    1541406634.502426, 
+    1541407221.843121, 
+    587.340695142746, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f6bfa045490>", 
+    "BSeuCallUII_RBFFD"
+  ], 
+  [
+    "9d9c00ca-73c6-4688-be26-ba7d730d4bdc", 
+    "d1cb2364de3e", 
+    1541406648.392039, 
+    1541406648.464285, 
+    0.07224583625793457, 
+    "<@task: celery.chord_unlock of proj at 0x7f490f204490>", 
+    "8e31c3d0-c067-45cf-943b-6e5af3a9733e"
+  ], 
+  [
+    "a4654123-6a51-4feb-a1f9-dc4a784028b0", 
+    "b50ca5aad85b", 
+    1541406655.996825, 
+    1541406656.101413, 
+    0.10458803176879883, 
+    "<@task: proj.tasks.save of proj at 0x7f6bfa045490>", 
+    [
+      {
+        "answer": [
+          2.7582, 
+          7.485, 
+          14.7021
+        ], 
+        "name": "BSeuCallUI_RBFFD", 
+        "time": 7.558098077774048
+      }
+    ]
+  ], 
+  [
+    "dc1dfff3-f13e-44b9-ba00-b7203b390a55", 
+    "3feb547cc4ff", 
+    1541406636.369194, 
+    1541406640.432181, 
+    4.062986850738525, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f0c54d7e490>", 
+    "BSeuCallUI_COS"
+  ], 
+  [
+    "9cf09f2c-3c03-4045-8d97-775ab9a3a2d9", 
+    "3feb547cc4ff", 
+    1541407655.465039, 
+    1541407655.529886, 
+    0.06484699249267578, 
+    "<@task: celery.chord_unlock of proj at 0x7f0c54d7e490>", 
+    "61b5a59e-2e9e-4003-9389-e1072e4c5e1b"
+  ], 
+  [
+    "3a255155-2a44-44a6-be6c-c4a9b40dd3d1", 
+    "d1cb2364de3e", 
+    1541406648.292232, 
+    1541406648.366471, 
+    0.07423901557922363, 
+    "<@task: celery.chord_unlock of proj at 0x7f490f204490>", 
+    "8d20910e-8981-4f7a-bbe1-bc962b82aff6"
+  ], 
+  [
+    "76792c89-0775-43ac-b541-ca9d0c45d61c", 
+    "d1cb2364de3e", 
+    1541406648.382117, 
+    1541406648.455511, 
+    0.0733940601348877, 
+    "<@task: celery.chord_unlock of proj at 0x7f490f204490>", 
+    "6c707d02-4e07-4edd-af4b-48f1d3aa9ec6"
+  ], 
+  [
+    "38582657-04a5-4bbc-b006-1af0a59f5544", 
+    "d1cb2364de3e", 
+    1541406646.864757, 
+    1541406647.485271, 
+    0.620513916015625, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f490f204490>", 
+    "BSeuCallUI_COS"
+  ], 
+  [
+    "45b9c91f-3ce1-45aa-b031-eba89fcb113a", 
+    "b50ca5aad85b", 
+    1541407656.483163, 
+    1541407656.534644, 
+    0.051480770111083984, 
+    "<@task: celery.chord_unlock of proj at 0x7f6bfa045490>", 
+    "f1b7ae68-5a19-490b-a471-1341aaf62908"
+  ], 
+  [
+    "3c0ef382-2610-4151-9b05-d6368b90476b", 
+    "3feb547cc4ff", 
+    1541406641.121648, 
+    1541406641.671859, 
+    0.5502109527587891, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f0c54d7e490>", 
+    "BSeuCallUI_COS"
+  ], 
+  [
+    "d8247c22-a2f8-492a-a253-f6bf6e7a39da", 
+    "3feb547cc4ff", 
+    1541407586.656909, 
+    1541407586.801603, 
+    0.14469408988952637, 
+    "<@task: proj.tasks.save of proj at 0x7f0c54d7e490>", 
+    [
+      {
+        "answer": [
+          2.7582, 
+          7.485, 
+          14.7021
+        ], 
+        "name": "BSeuCallUI_RBFFD", 
+        "time": 9.718258142471313
+      }
+    ]
+  ], 
+  [
+    "8091bbcc-5a29-4374-8d0a-afc85c54b6f8", 
+    "b50ca5aad85b", 
+    1541406651.948519, 
+    1541406652.610589, 
+    0.6620700359344482, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f6bfa045490>", 
+    "BSeuCallUII_COS"
+  ], 
+  [
+    "29c66902-ed59-47dc-b014-755eeb9a2861", 
+    "3feb547cc4ff", 
+    1541406653.151976, 
+    1541406653.240724, 
+    0.08874797821044922, 
+    "<@task: celery.chord_unlock of proj at 0x7f0c54d7e490>", 
+    "1fafec41-27e5-4112-a017-9fa1eab03a43"
+  ], 
+  [
+    "681b90a2-e277-457d-bddf-7731fe1bd933", 
+    "d1cb2364de3e", 
+    1541406648.472358, 
+    1541406648.606727, 
+    0.134368896484375, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_COS", 
+        "time": 4.8347578048706055
+      }
+    ]
+  ], 
+  [
+    "65b3f4b9-47b1-4061-8cfb-0fcda4f7e448", 
+    "3feb547cc4ff", 
+    1541406635.465494, 
+    1541406640.551674, 
+    5.086179971694946, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f0c54d7e490>", 
+    "BSeuCallUII_COS"
+  ], 
+  [
+    "cb6a36e7-e273-4a3a-b8d2-46b98cca6c96", 
+    "d1cb2364de3e", 
+    1541406648.464489, 
+    1541406648.603409, 
+    0.13892006874084473, 
+    "<@task: celery.chord_unlock of proj at 0x7f490f204490>", 
+    "a3d73add-8ec7-4933-b538-66978afce62f"
+  ], 
+  [
+    "fcd466b6-91c1-4006-9b22-bb5d6cdd1d5a", 
+    "d1cb2364de3e", 
+    1541406648.735497, 
+    1541406648.880628, 
+    0.14513111114501953, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7584, 
+          7.485, 
+          14.7023
+        ], 
+        "name": "BSeuCallUI_COS", 
+        "time": 0.4443991184234619
+      }
+    ]
+  ], 
+  [
+    "bd661c60-4cb8-4972-b510-6241fe3fa63c", 
+    "d1cb2364de3e", 
+    1541406649.996684, 
+    1541406650.040617, 
+    0.04393291473388672, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7584, 
+          7.485, 
+          14.7023
+        ], 
+        "name": "BSeuCallUI_COS", 
+        "time": 0.4822561740875244
+      }
+    ]
+  ], 
+  [
+    "d6c3cde3-1084-443e-958b-2be2e44fce4e", 
+    "b50ca5aad85b", 
+    1541407688.629066, 
+    1541407688.748165, 
+    0.11909890174865723, 
+    "<@task: proj.tasks.save of proj at 0x7f6bfa045490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_RBFFD", 
+        "time": 1019.6901109218597
+      }
+    ]
+  ], 
+  [
+    "e987dc69-fbd4-4fcb-b19e-784c2b329034", 
+    "d1cb2364de3e", 
+    1541407654.562609, 
+    1541407654.646591, 
+    0.08398199081420898, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7582, 
+          7.485, 
+          14.7021
+        ], 
+        "name": "BSeuCallUI_RBFFD", 
+        "time": 12.462653875350952
+      }
+    ]
+  ], 
+  [
+    "dec02486-7fd4-43c9-b9ae-a0c621c7c3c5", 
+    "d1cb2364de3e", 
+    1541406649.89456, 
+    1541406650.093205, 
+    0.19864487648010254, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7582, 
+          7.485, 
+          14.7021
+        ], 
+        "name": "BSeuCallUI_RBFFD", 
+        "time": 10.615112066268921
+      }
+    ]
+  ], 
+  [
+    "84331950-206a-4dcd-bf63-1b850a60bdc9", 
+    "d1cb2364de3e", 
+    1541406649.816076, 
+    1541406649.881421, 
+    0.06534504890441895, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7582, 
+          7.485, 
+          14.7021
+        ], 
+        "name": "BSeuCallUI_RBFFD", 
+        "time": 10.584348917007446
+      }
+    ]
+  ], 
+  [
+    "7b1db19d-0049-4444-8d6f-619cfc8eb3e5", 
+    "d1cb2364de3e", 
+    1541406649.427544, 
+    1541406649.491631, 
+    0.0640869140625, 
+    "<@task: celery.chord_unlock of proj at 0x7f490f204490>", 
+    "732a63b4-6c09-4554-9bcf-67e1840dfabb"
+  ], 
+  [
+    "6ed5c62b-48f8-4420-afd4-ac728c068292", 
+    "d1cb2364de3e", 
+    1541406649.4351, 
+    1541406649.556698, 
+    0.1215980052947998, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7584, 
+          7.485, 
+          14.7023
+        ], 
+        "name": "BSeuCallUI_COS", 
+        "time": 0.3377659320831299
+      }
+    ]
+  ], 
+  [
+    "62b43e68-5fec-4950-bd82-e003427d895c", 
+    "d1cb2364de3e", 
+    1541407591.795789, 
+    1541407591.977772, 
+    0.18198299407958984, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_COS", 
+        "time": 0.5638399124145508
+      }
+    ]
+  ], 
+  [
+    "5754d74d-3c4f-4360-80c5-68f7e4939177", 
+    "f85884d6dd29", 
+    1541406634.349985, 
+    1541407659.743534, 
+    1025.3935492038727, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7fa6fbf55490>", 
+    "BSeuCallUII_RBFFD"
+  ], 
+  [
+    "8444f99b-20fe-463f-85b1-4bb617970fae", 
+    "b50ca5aad85b", 
+    1541406654.594754, 
+    1541406654.654753, 
+    0.05999898910522461, 
+    "<@task: celery.chord_unlock of proj at 0x7f6bfa045490>", 
+    "0adeb46a-cba3-4b93-964b-13ba6d67cd18"
+  ], 
+  [
+    "b6fd37c9-2580-4f56-9871-a678adddc044", 
+    "d1cb2364de3e", 
+    1541406649.886958, 
+    1541406649.935337, 
+    0.04837918281555176, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7582, 
+          7.485, 
+          14.7021
+        ], 
+        "name": "BSeuCallUI_RBFFD", 
+        "time": 10.37612795829773
+      }
+    ]
+  ], 
+  [
+    "d95c566f-ff24-46d0-9521-97d72455e045", 
+    "3feb547cc4ff", 
+    1541407588.766837, 
+    1541407589.105749, 
+    0.3389120101928711, 
+    "<@task: proj.tasks.save of proj at 0x7f0c54d7e490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_RBFFD", 
+        "time": 586.7649590969086
+      }
+    ]
+  ], 
+  [
+    "47fc9bf5-31b5-4e8a-9bcd-fd3c91ae9460", 
+    "3feb547cc4ff", 
+    1541406642.251999, 
+    1541406653.130943, 
+    10.878944158554077, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f0c54d7e490>", 
+    "BSeuCallUI_RBFFD"
+  ], 
+  [
+    "d69aa19f-4395-482e-ade5-1c60ec8f3703", 
+    "d1cb2364de3e", 
+    1541406649.256031, 
+    1541406649.327984, 
+    0.07195305824279785, 
+    "<@task: celery.chord_unlock of proj at 0x7f490f204490>", 
+    "2738f081-64ad-4f31-80db-09aad713b7f9"
+  ], 
+  [
+    "3989c555-8f8e-4356-bf01-c591f01bdcc7", 
+    "d1cb2364de3e", 
+    1541406653.288316, 
+    1541406653.348614, 
+    0.06029796600341797, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7584, 
+          7.485, 
+          14.7023
+        ], 
+        "name": "BSeuCallUI_COS", 
+        "time": 0.40807104110717773
+      }
+    ]
+  ], 
+  [
+    "e6154816-7c46-4d16-ba61-19ac7f1158fe", 
+    "d1cb2364de3e", 
+    1541406646.039584, 
+    1541406646.769235, 
+    0.7296509742736816, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f490f204490>", 
+    "BSeuCallUII_COS"
+  ], 
+  [
+    "fa5be7fe-2ee0-4d98-b9d9-e04514538e73", 
+    "b50ca5aad85b", 
+    1541406652.616809, 
+    1541406662.589765, 
+    9.97295618057251, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f6bfa045490>", 
+    "BSeuCallUI_RBFFD"
+  ], 
+  [
+    "cb3d7427-0552-447f-810f-26b3762caa4f", 
+    "d1cb2364de3e", 
+    1541406647.4955, 
+    1541406655.146785, 
+    7.65128493309021, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f490f204490>", 
+    "BSeuCallUI_RBFFD"
+  ], 
+  [
+    "98cf6fb8-fd92-41a2-a89a-b5683c7594b3", 
+    "f85884d6dd29", 
+    1541406648.015306, 
+    1541406658.884893, 
+    10.869586944580078, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7fa6fbf55490>", 
+    "BSeuCallUI_RBFFD"
+  ], 
+  [
+    "7fed2f76-02e4-4c19-b104-f05ccee23e16", 
+    "f85884d6dd29", 
+    1541406647.587187, 
+    1541407667.475859, 
+    1019.888671875, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7fa6fbf55490>", 
+    "BSeuCallUII_RBFFD"
+  ], 
+  [
+    "738072fe-74e5-4b30-8c7a-d0135ec52e84", 
+    "3feb547cc4ff", 
+    1541407593.920124, 
+    1541407593.981475, 
+    0.06135106086730957, 
+    "<@task: celery.chord_unlock of proj at 0x7f0c54d7e490>", 
+    "dee0e688-b392-4679-8e01-11118ece190a"
+  ], 
+  [
+    "17cc5864-8d28-475c-b7ec-4c4907f83178", 
+    "b50ca5aad85b", 
+    1541406634.590694, 
+    1541406651.918358, 
+    17.327664136886597, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f6bfa045490>", 
+    "BSeuCallUI_RBFFD"
+  ], 
+  [
+    "05cdf3fb-1afb-4b6b-a661-5693ef512bc7", 
+    "b50ca5aad85b", 
+    1541406642.661709, 
+    1541407222.682426, 
+    580.0207169055939, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f6bfa045490>", 
+    "BSeuCallUII_RBFFD"
+  ], 
+  [
+    "47e40d86-cc10-46ce-8905-9c70aa09b9ea", 
+    "3feb547cc4ff", 
+    1541407585.685028, 
+    1541407585.741942, 
+    0.05691385269165039, 
+    "<@task: proj.tasks.save of proj at 0x7f0c54d7e490>", 
+    [
+      {
+        "answer": [
+          2.7582, 
+          7.485, 
+          14.7021
+        ], 
+        "name": "BSeuCallUI_RBFFD", 
+        "time": 10.777120113372803
+      }
+    ]
+  ], 
+  [
+    "fc552e4c-0121-432c-bb39-a98a46613bce", 
+    "d1cb2364de3e", 
+    1541406649.940641, 
+    1541406649.990611, 
+    0.049970149993896484, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7584, 
+          7.485, 
+          14.7023
+        ], 
+        "name": "BSeuCallUI_COS", 
+        "time": 0.4087791442871094
+      }
+    ]
+  ], 
+  [
+    "2def609f-4d76-4911-8438-94ef5bfde9da", 
+    "f85884d6dd29", 
+    1541407688.595691, 
+    1541407688.631021, 
+    0.03533005714416504, 
+    "<@task: celery.chord_unlock of proj at 0x7fa6fbf55490>", 
+    "00e9e5ee-5f13-4cfc-aae0-a9233ffc1b19"
+  ], 
+  [
+    "871c92b2-3786-4845-b7db-8191fc5b43a6", 
+    "b50ca5aad85b", 
+    1541407655.509752, 
+    1541407655.547732, 
+    0.037980079650878906, 
+    "<@task: celery.chord_unlock of proj at 0x7f6bfa045490>", 
+    "d782e645-032e-4bda-952c-fe0cddf7c48e"
+  ], 
+  [
+    "67a31dae-bfce-40cc-9680-f6f98667e10a", 
+    "3feb547cc4ff", 
+    1541407655.530748, 
+    1541407655.665315, 
+    0.1345670223236084, 
+    "<@task: proj.tasks.save of proj at 0x7f0c54d7e490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_RBFFD", 
+        "time": 956.6267309188843
+      }
+    ]
+  ], 
+  [
+    "9589eafd-33fd-40e9-a87d-04a868014218", 
+    "3feb547cc4ff", 
+    1541407584.870744, 
+    1541407585.58768, 
+    0.7169361114501953, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f0c54d7e490>", 
+    "BSeuCallUI_COS"
+  ], 
+  [
+    "22895e10-c86c-4f4f-91c1-d9521f7535ee", 
+    "d1cb2364de3e", 
+    1541407602.47825, 
+    1541407602.579647, 
+    0.10139703750610352, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_RBFFD", 
+        "time": 948.9586520195007
+      }
+    ]
+  ], 
+  [
+    "b82d2e50-afe3-4950-a92e-fe7f3db6d06e", 
+    "d1cb2364de3e", 
+    1541406647.399488, 
+    1541406647.988199, 
+    0.5887110233306885, 
+    "<@task: celery.chord_unlock of proj at 0x7f490f204490>", 
+    "3b15e689-7eee-44d5-a193-1a37a38d6259"
+  ], 
+  [
+    "a7d88990-c016-4679-b1ea-a13fb2e2b050", 
+    "b50ca5aad85b", 
+    1541407654.431051, 
+    1541407654.907167, 
+    0.4761159420013428, 
+    "<@task: proj.tasks.save of proj at 0x7f6bfa045490>", 
+    [
+      {
+        "answer": [
+          2.7582, 
+          7.485, 
+          14.7021
+        ], 
+        "name": "BSeuCallUI_RBFFD", 
+        "time": 12.465919971466064
+      }
+    ]
+  ], 
+  [
+    "2df07172-cb2b-4270-a102-439efe603004", 
+    "3feb547cc4ff", 
+    1541406636.332271, 
+    1541407593.483842, 
+    957.1515707969666, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f0c54d7e490>", 
+    "BSeuCallUII_RBFFD"
+  ], 
+  [
+    "3eefba9d-f8bc-4294-a8f5-6869abfadb08", 
+    "f85884d6dd29", 
+    1541407654.510385, 
+    1541407654.560332, 
+    0.04994702339172363, 
+    "<@task: celery.chord_unlock of proj at 0x7fa6fbf55490>", 
+    "58ae2f6e-92af-4ed3-9411-b1c8dfc6bb59"
+  ], 
+  [
+    "c2ed51d1-1e3f-43ef-9d4e-5637ba0df429", 
+    "d1cb2364de3e", 
+    1541406635.120296, 
+    1541406646.032737, 
+    10.91244101524353, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f490f204490>", 
+    "BSeuCallUI_RBFFD"
+  ], 
+  [
+    "4e53e244-2445-4632-bfc5-d472ad531767", 
+    "3feb547cc4ff", 
+    1541406642.203522, 
+    1541406642.244427, 
+    0.040904998779296875, 
+    "<@task: celery.chord_unlock of proj at 0x7f0c54d7e490>", 
+    "7d506b94-e7e5-4c59-9441-27a70b090e6f"
+  ], 
+  [
+    "bdc00228-5816-4749-be81-491d46f0fa33", 
+    "d1cb2364de3e", 
+    1541407586.120691, 
+    1541407586.181616, 
+    0.06092500686645508, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          2.7584, 
+          7.485, 
+          14.7023
+        ], 
+        "name": "BSeuCallUI_COS", 
+        "time": 0.4156820774078369
+      }
+    ]
+  ], 
+  [
+    "7a8f80b9-d7dd-451c-99f8-53e8b7cf8a47", 
+    "f85884d6dd29", 
+    1541407654.372559, 
+    1541407654.429859, 
+    0.05729985237121582, 
+    "<@task: celery.chord_unlock of proj at 0x7fa6fbf55490>", 
+    "4a572b8e-6c0a-4dfa-9b04-12a2d820260a"
+  ], 
+  [
+    "76bc5517-e79c-4a18-813e-1409c1ca8243", 
+    "b50ca5aad85b", 
+    1541407585.892469, 
+    1541407585.967189, 
+    0.07472014427185059, 
+    "<@task: proj.tasks.save of proj at 0x7f6bfa045490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_RBFFD", 
+        "time": 943.6239659786224
+      }
+    ]
+  ], 
+  [
+    "42fe52da-aed0-4f20-a22a-c0f561626fa9", 
+    "d1cb2364de3e", 
+    1541406635.068417, 
+    1541406645.906065, 
+    10.837647914886475, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f490f204490>", 
+    "BSeuCallUI_RBFFD"
+  ], 
+  [
+    "ffad01b1-6b86-4d13-8f7d-b8d373589e52", 
+    "3feb547cc4ff", 
+    1541406636.505594, 
+    1541407593.59473, 
+    957.0891358852386, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f0c54d7e490>", 
+    "BSeuCallUII_RBFFD"
+  ], 
+  [
+    "27384ea9-205d-4fc9-be4a-b8215ae219c9", 
+    "3feb547cc4ff", 
+    1541406641.683382, 
+    1541406642.197887, 
+    0.5145049095153809, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f0c54d7e490>", 
+    "BSeuCallUI_COS"
+  ], 
+  [
+    "8ae1adf4-d7b5-43d7-9edf-d898d4d62de8", 
+    "d1cb2364de3e", 
+    1541406637.099633, 
+    1541406647.869303, 
+    10.769670009613037, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7f490f204490>", 
+    "BSeuCallUI_RBFFD"
+  ], 
+  [
+    "9705adb2-35ff-46a2-82c6-460fd9f890bb", 
+    "b50ca5aad85b", 
+    1541407591.721036, 
+    1541407591.79106, 
+    0.07002401351928711, 
+    "<@task: celery.chord_unlock of proj at 0x7f6bfa045490>", 
+    "9aeae1ef-4421-4626-927a-f497b6877368"
+  ], 
+  [
+    "d9712ec0-247d-4946-90c9-0d1c5c8c11e2", 
+    "f85884d6dd29", 
+    1541407667.484563, 
+    1541407667.590992, 
+    0.10642886161804199, 
+    "<@task: celery.chord_unlock of proj at 0x7fa6fbf55490>", 
+    "d9f8fdd6-ef40-494e-84c4-fb069ccfaba6"
+  ], 
+  [
+    "1466847a-95a9-4c81-9541-5bda3e5017fb", 
+    "b50ca5aad85b", 
+    1541406655.469754, 
+    1541406655.826924, 
+    0.35717010498046875, 
+    "<@task: proj.tasks.save of proj at 0x7f6bfa045490>", 
+    [
+      {
+        "answer": [
+          2.7582, 
+          7.485, 
+          14.7021
+        ], 
+        "name": "BSeuCallUI_RBFFD", 
+        "time": 16.957430124282837
+      }
+    ]
+  ], 
+  [
+    "f77fbaee-9820-45ef-a9d7-5df4c1df8fb3", 
+    "b50ca5aad85b", 
+    1541407587.161247, 
+    1541407587.19333, 
+    0.03208303451538086, 
+    "<@task: celery.chord_unlock of proj at 0x7f6bfa045490>", 
+    "437004cf-e3c8-4865-954f-c3093f2e8c60"
+  ], 
+  [
+    "6b4dd4b6-bf85-4877-a77f-14a844a8406b", 
+    "d1cb2364de3e", 
+    1541406650.099002, 
+    1541406650.200288, 
+    0.10128617286682129, 
+    "<@task: proj.tasks.save of proj at 0x7f490f204490>", 
+    [
+      {
+        "answer": [
+          1.686, 
+          2.1934, 
+          2.7814
+        ], 
+        "name": "BSeuCallUII_COS", 
+        "time": 0.5686719417572021
+      }
+    ]
+  ], 
+  [
+    "4485f0b4-c664-4d80-99ea-51561a080af0", 
+    "f85884d6dd29", 
+    1541406634.571742, 
+    1541406647.990885, 
+    13.419142961502075, 
+    "<@task: proj.tasks.run_octave_file of proj at 0x7fa6fbf55490>", 
+    "BSeuCallUI_RBFFD"
+  ], 
+  [
+    "01c528ea-cfa1-42c9-a97b-c89d57f81bf7", 
+    "f85884d6dd29", 
+    1541407673.055535, 
+    1541407673.093107, 
+    0.03757190704345703, 
+    "<@task: celery.chord_unlock of proj at 0x7fa6fbf55490>", 
+    "15c7531b-a11a-4946-86e3-f54454efad08"
+  ], 
+  [
+    "16ce13b3-d849-40c2-b7a5-962509b8a430", 
+    "3feb547cc4ff", 
+    1541407585.810005, 
+    1541407585.904233, 
+    0.09422802925109863, 
+    "<@task: celery.chord_unlock of proj at 0x7f0c54d7e490>", 
+    "094a9457-dc5f-48d9-99d9-2a0e1dfd4869"
+  ]
+]

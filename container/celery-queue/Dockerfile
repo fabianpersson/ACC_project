@@ -9,7 +9,8 @@ RUN pip install redis
 RUN pip install numpy
 ADD shared/proj /home/ubuntu/proj
 
-ENV PW=$pw
+ARG pw=default
+ENV pw=$pw
 #ADD celery-queue/files /home/ubuntu/files
 ADD benchop.tar.gz/ /home/ubuntu/files/
 RUN ls /home/ubuntu/files/

@@ -10,25 +10,31 @@ from proj.celery import app as celery_app
 from celery.result import AsyncResult, GroupResult
 from proj.celeryconfig import result_backend
 from proj.redisconfig import cache
-import time
+import time, re, random
 
 app = Flask(__name__)
 import time
 
+available_problems = ['I', 'II']
+available_methods = ['COS', 'RBF-FD']
+
 @app.route('/api/v1.0/get_stats')
 def get_stats():
-    from task.timings import timings
+    timings = []
+    timing_prefix = r'[\w\d]{8}\-'
+    for key in cache.keys():
+        if bool(re.search(timing_prefix,key)): 
+            t = cache.get(key)
+            timings.append(eval(t))
+        
     return jsonify(timings)
     
 
-@app.route('/api/v1.0/<string:method>')
+@app.route('/api/v1.0/<string:method>/<string:problem>')
 @app.route('/api/v1.0/<string:method>/<string:problem>/<int:s1>/<int:s2>/<int:s3>/<int:K>/<int:T>/<int:r>/<int:sig>', methods=['GET'])
 def index(method, problem='I', s1 = 90, s2 = 100, s3 = 110, K = 100, T = 1.0, r = 0.03 , sig = 0.15):
-    available_problems = ['I', 'II']
-    available_methods = ['COS', 'RBF-FD']
+
     parameters = ([s1, s2, s3], K, T, r, sig)
-    
-    
     if problem in available_problems and method in available_methods: #if it's a valid request
         methods = [method]
         problems = []
@@ -37,7 +43,8 @@ def index(method, problem='I', s1 = 90, s2 = 100, s3 = 110, K = 100, T = 1.0, r 
 
         request_id = cache.incr('request_id')
         
-        callback = save.s(request_id)
+        callback = save.s(request_id)#.set(priority=0) #prioritze save, so that users don't have to wait for a very long time
+        
         tasks = generate_tasks(methods, base_func, base_path, parameters, problem)
         jobs = execute_tasks(tasks)(callback)       
 
@@ -50,6 +57,24 @@ def get_task(request_id):
     res = cache.get(request_id)
     return jsonify(res)
    
+@app.route('/api/v1.0/benchmark/<int:n_tasks>')     
+def benchmark(n_tasks):
+    params1 = {"s1": 90, "s2": 100, "s3":110, 'K': 100, "T":1.0, "r": 0.03, "sig":0.15}
+    params2 = {"s1": 97, "s2": 98, "s3":99, 'K': 100, "T":0.25, "r": 0.10, "sig":0.1}
+    
+    for _ in range(0, n_tasks):
+        rand_problem = 'I' if random.random() < 0.67 else 'II' ## make problem 1 a bit more likely
+        rand_method = random.choice(available_methods)
+
+        if rand_problem == 'I':
+            index(rand_method, rand_problem, **params1)
+        elif rand_problem == 'II':
+            index(rand_method, rand_problem, **params2)
+            
+            
+    expected_time = (0.165*150+10)*n_tasks
+    return jsonify("benchmark started. Esimated time is {}".format(expected_time))
+    
     
 #generate tasks        
 def generate_tasks(methods, base_func, base_path, parameters, problem):
@@ -66,6 +91,8 @@ def generate_tasks(methods, base_func, base_path, parameters, problem):
 
 def execute_tasks(tasks):
     return chord(tasks) #chord
+
+
     
     
 
